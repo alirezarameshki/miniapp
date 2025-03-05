@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draw Boxes on Image</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div class="item"></div>
+
+    <script>
+        const item = document.querySelector(".item")
+        async function getWeather(city){
+            try{
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=9a21a57d6c50a26aed3b1256cc3b1f50`)
+                const data = await response.json()
+                return data.main.temp
+            }catch(error){
+                console.log(error)
+            }
+        }
+
+        (async () => {
+            const temperature = await getWeather("tehran");
+            item.innerHTML = `دمای هوا در تهران: ${(temperature - 273.15).toFixed(1)} درجه سانتی‌گراد`;
+        })();
+    </script>
+</body>
+</html>

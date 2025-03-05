@@ -1,0 +1,505 @@
+@font-face {
+    font-family: 'Vazir';
+    src: url('vazir-font-v16.1.0/Vazir-Light.woff') format('woff'),
+                }
+        *{
+            font-family:"Vazir", sans-serif;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            direction: rtl;
+            user-select: none;
+        }
+        body{
+           
+            display: flex;
+            flex-direction: column;
+             align-items: center;
+            box-sizing: border-box;
+            min-height: 100vh;
+             
+        }
+
+        .main{
+            background: linear-gradient(to bottom, #0495d8, #e8ebe9);
+             width: 100%;
+             min-height: 100vh;
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             gap: 15px;
+             object-fit: cover;
+             background-position: center;
+        }
+
+        .input_div{
+            height: 50px;
+            width: 90%;
+            max-width: 400px;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            direction: ltr;
+        
+        }
+
+        
+
+        .input{
+            width: 100%;
+            height: 40px;
+            border-radius: 15px;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+            outline: none;
+            overflow: hidden;
+            background-color: rgb(243, 242, 242);
+            border: 0;
+            text-align: right;
+            padding-right: 12px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+             
+            resize: none;
+            font-size: 16px;
+        }
+
+        .input:placeholder-shown{
+            font-size: 14px;
+        }
+
+        .search_btn{
+            width: 50px;
+            height: 40px;
+            border-radius: 15px;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+            border: 0;
+            background-color: rgb(27, 109, 231);
+            box-sizing: border-box;
+            color: white;
+            font-size: 16px;
+        }
+        
+        .date_div{
+         
+            
+            padding: 10px;
+
+            display: flex;
+            justify-content: center;
+        }
+        .date{
+            background-color: #2D336B;
+            color: white;
+            border-radius: 15px;
+             padding-left: 5px;
+             padding-right: 5px;
+            height: 20px;
+            font-size: 12px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .temp{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            color: #2D336B;
+            font-family: sans-serif;
+            direction: ltr;
+        }
+
+        .temp_status{
+            height: 80px;
+            display: flex;
+            font-size: 25px;
+            justify-content: center;
+         
+
+            font-weight: 600;
+        }
+
+        .check_status{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        
+        }
+        
+        .check_ai{
+            min-width: 130px;
+            height: 20px;
+            background-color: #7D1C4A;
+
+            border-radius: 15px;
+            color: white;
+            
+            display: flex;
+            justify-content: center;
+       
+            font-size: 12px;
+        }
+
+        .check_ai:active{
+            background-color: #6d1940;
+        }
+
+        .check_status p{
+            text-align: center;
+            font-size: 12px;
+          
+        }
+
+        .status_items{
+            width: 90%;
+            height: 150px;
+            background-color: #2D336B;
+            border-radius: 15px;
+            display: flex;
+            padding: 10px;
+            color: white;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .status_weather{
+            display: flex;
+           gap: 20px;
+            align-items: center;
+            flex-direction: column;
+             
+        }
+
+        .status_icon{
+            font-size: 25px;
+            color: white;
+        }
+
+        .status_info{
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+            align-items: center;
+             
+        }
+
+        .status_persent{
+          font-size: 16px;
+        }
+
+        .status_name{
+           font-size: 12px;
+           color: rgb(221, 220, 220);
+        }
+
+        .next_days{
+            width: 100%;
+            border-top: 1px solid rgba(170, 168, 168, 0.774);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding-top: 10px;
+            align-items: center;
+        }
+
+        .next_day{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+           font-size: 12px;
+        }
+
+      
+
+        .next_day span{
+            display: flex;  
+            align-items: center;
+        }
+        .ai_response{
+            background-color: rgba(253, 253, 253, 0.815);
+            width: 90%;
+            position: absolute;
+            padding: 15px;
+            font-size: 14px;
+            border-radius: 15px;
+            top: 100px;
+            backdrop-filter: blur(10px);
+          
+        }
+
+        .animation {
+            animation: animate 0.8s forwards ease-in-out;
+        }
+
+        @keyframes animate {
+            0% {
+            transform: scale(0.7);
+            opacity: 0;
+         
+            }
+            100% {
+            transform: scale(1);
+            opacity: 1;
+
+            }
+        }
+
+        .close{
+            background-color: rgb(238, 233, 233);
+            display: inline-block;
+             width: 30px;
+             height: 30px;
+             border-radius: 50%;
+             font-size: 15px;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             border: 1px solid rgb(105, 104, 104);
+        }
+
+        .display{
+            display: none;
+        }
+
+ 
+        @media (min-width: 800px) {
+            .ai_response{
+                width: 50%;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .temp{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #2D336B;
+            font-family: sans-serif;
+            direction: ltr;
+        }
+
+        .input_div{
+            height: 50px;
+            width: 90%;
+            max-width: 400px;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            direction: ltr;
+        
+        }
+
+        
+
+        .input{
+            width: 100%;
+            height: 30px;
+            border-radius: 15px;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+            outline: none;
+            overflow: hidden;
+            background-color: rgb(243, 242, 242);
+            border: 0;
+            text-align: right;
+            padding-right: 12px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            resize: none;
+            font-size: 16px;
+        }
+
+        .input:placeholder-shown{
+            font-size: 10px;
+        }
+
+        .search_btn{
+            width: 50px;
+            height: 30px;
+            border-radius: 15px;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+            border: 0;
+            background-color: rgb(27, 109, 231);
+            box-sizing: border-box;
+            color: white;
+            font-size: 16px;
+        }
+
+        .date_div{
+         
+            
+         padding: 10px;
+
+         display: flex;
+         justify-content: center;
+     }
+     .date{
+         background-color: #2D336B;
+         color: white;
+         border-radius: 15px;
+          padding-left: 5px;
+          padding-right: 5px;
+         height: 20px;
+         font-size: 8px;
+
+         display: flex;
+         justify-content: center;
+         align-items: center;
+     }
+
+     .check_status{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        
+        }
+        
+        .check_ai{
+            min-width: 120px;
+            height: 20px;
+            background-color: #7D1C4A;
+
+            border-radius: 15px;
+            color: white;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+       
+            font-size: 10px;
+        }
+
+        
+        .status_items{
+            width: 90%;
+            height: 120px;
+            background-color: #2D336B;
+            border-radius: 15px;
+            display: flex;
+            padding: 10px;
+            color: white;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .status_weather{
+            display: flex;
+           gap: 20px;
+            align-items: center;
+            flex-direction: column;
+             
+        }
+
+        .status_icon{
+            font-size: 18px;
+            color: white;
+        }
+
+        .status_info{
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+            align-items: center;
+             
+        }
+
+        .status_persent{
+          font-size: 14px;
+        }
+
+        .status_name{
+           font-size: 10px;
+           color: rgb(221, 220, 220);
+        }
+
+        .next_days{
+            width: 100%;
+            border-top: 1px solid rgba(170, 168, 168, 0.774);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding-top: 10px;
+            align-items: center;
+        }
+
+        .next_day{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+           font-size: 10px;
+        }
+
+      
+
+        .next_day span{
+            display: flex;  
+            align-items: center;
+        }
+
+        }
+
+        @media (max-width: 250px) {
+            .temp{
+            font-size: 3rem;
+            }
+
+            .input_div{
+            height: 40px;
+            }
+
+            .input{
+            height: 25px;
+            font-size: 14px;
+            }
+
+            .input:placeholder-shown{
+            font-size: 8px;
+            }
+
+            .search_btn{
+            height: 25px;
+            }
+
+            .date{
+            font-size: 6px;
+            }
+
+            .check_ai{
+            min-width: 100px;
+            font-size: 8px;
+            }
+
+            .status_items{
+            height: 100px;
+            }
+
+            .status_icon{
+            font-size: 16px;
+            }
+
+            .status_persent{
+            font-size: 12px;
+            }
+
+            .status_name{
+            font-size: 8px;
+            }
+
+            .next_day{
+            font-size: 8px;
+            }
+        }

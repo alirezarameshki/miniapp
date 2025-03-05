@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>آپلود عکس به ImgBB</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: center;
+            padding: 20px;
+        }
+        .result {
+            margin-top: 20px;
+            word-wrap: break-word;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>آپلود عکس به ImgBB</h1>
+    <input type="file" id="imageInput" accept="image/*">
+    <button onclick="uploadImage()">آپلود</button>
+    <div id="result" class="result"></div>
+
+    <script>
+        async function uploadImage() {
+            const imageInput = document.getElementById("imageInput");
+            const result = document.getElementById("result");
+            const apiKey = "2a95140901ea5fc62ad060bfc12004e7"; // کلید API ImgBB رو اینجا بذار
+            const url = `https://api.imgbb.com/1/upload?expiration=600&key=${apiKey}`;
+
+            // چک کردن انتخاب فایل
+            if (!imageInput.files || imageInput.files.length === 0) {
+                result.textContent = "لطفاً یه عکس انتخاب کن!";
+                return;
+            }
+
+            const file = imageInput.files[0];
+            const formData = new FormData();
+            formData.append("image", file); // فایل رو به‌عنوان image می‌فرستیم
+
+            try {
+                result.textContent = "در حال آپلود...";
+                const response = await fetch(url, {
+                    method: "POST",
+                    body: formData
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    console.log(data.data.url)
+                } else {
+                    throw new Error(data.error.message || "خطا در آپلود");
+                }
+            } catch (error) {
+                result.textContent = "خطا: " + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

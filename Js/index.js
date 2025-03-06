@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const loading = document.querySelector('.loading');
     const body = document.querySelector('body');
 
+    loading.classList.add("display")
+
     const chatbox = document.querySelector('.chatbot');
     const weather = document.querySelector('.weather');
     const crypto = document.querySelector('.crypto');

@@ -75,7 +75,7 @@ const getfile = document.querySelector(".getfile")
  const welcome = document.createElement("div")
  welcome.classList.add("response","background")
  welcome.innerHTML = `
- سلام خوش امدید من یک دستیار هوش مند هستم و میتوانم به سوالات شما پاسخ بدم 
+ سلام خوش امدید من یک دستیار هوش مصنوعی هستم و میتوانم به سوالات شما پاسخ بدم 
 <br>
 <br>
 توجه داشته باشید که من به پیام های قبلی شما دسترسی ندارم و فقط میتوانم به سوالات شما پاسخ بدم
@@ -193,7 +193,7 @@ async function chatApi() {
        const apiResponse = await fetch("https://openrouter.ai/api/v1/chat/completions", {
   method: "POST",
   headers: {
-    "Authorization": "Bearer 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",
+    "Authorization": "Bearer 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",
     "HTTP-Referer": "<YOUR_SITE_URL>", // Optional. Site URL for rankings on openrouter.ai.
     "X-Title": "<YOUR_SITE_NAME>", // Optional. Site title for rankings on openrouter.ai.
     "Content-Type": "application/json"

@@ -13,6 +13,22 @@ const ai_response = document.querySelector(".ai_response")
 const close = document.querySelector(".close")
 const response_text = document.querySelector(".response_text")
 
+const loading = document.querySelector(".loading")
+
+const back_icon = document.querySelector(".back_icon")
+
+back_icon.addEventListener("click",()=>{
+    loading.classList.remove("display")
+   
+
+    setTimeout(() => {
+         document.location.href = "../index.html"
+    }, 1000);
+});
+
+
+
+
 check_ai.addEventListener("click",()=>{
     ai_response.classList.toggle("display")
     ai_response.classList.add("animation")
@@ -71,7 +87,7 @@ name : ${data.name}
         const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
             method: "POST",
             headers: {
-                "Authorization": "Bearer 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",
+                "Authorization": "Bearer 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",
                 "HTTP-Referer": "<YOUR_SITE_URL>", // Optional. Site URL for rankings on openrouter.ai.
                 "X-Title": "<YOUR_SITE_NAME>", // Optional. Site title for rankings on openrouter.ai.
                 "Content-Type": "application/json"

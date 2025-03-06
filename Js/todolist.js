@@ -13,16 +13,17 @@ const Mine = document.querySelector(".Mine")
 const goMine = document.querySelector(".goMine")
 const goTask = document.querySelector(".goTask")
 const body = document.querySelector("body")
+const loading = document.querySelector(".loading")
 
 const back_icon = document.querySelector(".back_icon")
 
-back_icon.addEventListener("click", async function() {
-    const response = await fetch("../html/index.html");
-    const get = await response.text();
-    console.log(get); // کار میکنه
-    document.open();
-    document.write(get); // این کار میکند
-    document.close();
+back_icon.addEventListener("click",()=>{
+    loading.classList.remove("display")
+   
+
+    setTimeout(() => {
+         document.location.href = "../index.html"
+    }, 1000);
 });
 
 

@@ -8,6 +8,16 @@ const setting_icon = document.querySelector(".setting_icon")
 const menu = document.querySelector(".menu")
 const clear_history = document.querySelector(".clear-history");
 const close_item = document.querySelector(".close_item")
+const back = document.querySelector(".back")
+const loading = document.querySelector(".loading")
+
+
+back.addEventListener("click",()=>{
+    loading.classList.remove("display")
+    setTimeout(() => {
+        document.location.href = "../index.html"
+    },1000);
+})
 
 textarea.focus()
 
@@ -59,10 +69,7 @@ const getfile = document.querySelector(".getfile")
         }
 
        
-send_file.addEventListener("click",()=>{
-    choose_file.click()
-  
-})
+ 
 
  
  const welcome = document.createElement("div")
@@ -182,11 +189,11 @@ async function chatApi() {
 
 
    try {
-    const weather = await getWeather("Tehran")
+   
        const apiResponse = await fetch("https://openrouter.ai/api/v1/chat/completions", {
   method: "POST",
   headers: {
-    "Authorization": "Bearer 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",
+    "Authorization": "Bearer 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",
     "HTTP-Referer": "<YOUR_SITE_URL>", // Optional. Site URL for rankings on openrouter.ai.
     "X-Title": "<YOUR_SITE_NAME>", // Optional. Site title for rankings on openrouter.ai.
     "Content-Type": "application/json"
@@ -222,8 +229,8 @@ async function chatApi() {
         
        responseDiv.classList.add("background")
 
-       const cityName = markdownText.trim()
-       console.log("the cityname is " + cityName)
+        
+     
 
    }catch (error) {
        console.error("Error:", error);

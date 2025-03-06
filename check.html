@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persian Date Example</title>
+    <!-- Include Persian Date library -->
+    <script src="bower_components/persian-date/dist/persian-date.min.js"></script>
+</head>
+<body>
+    <h1>Current Persian Date</h1>
+    <div id="persian-date"></div>
+
+    <script>
+        // Ensure the persianDate library is loaded and available
+        if (typeof persianDate !== 'undefined') {
+            var pd = new persianDate().format('YYYY/MM/DD');
+            document.getElementById('persian-date').innerText = pd;
+        } else {
+            console.error('persianDate library is not defined');
+        }
+    </script>
+</body>
+</html>

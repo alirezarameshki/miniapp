@@ -4,13 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="node_modules/persian-date/dist/persian-date.js" type="text/javascript" src="/Js/weather.js"></script>
-    <title>Document</title>
+    <script src="../bower_components/persian-date/dist/persian-date.min.js"></script>
     <link rel="stylesheet" href="../css/weather.css">
+    <title>Document</title>
 </head>
 <body>
     <div class="main">
+
+        <div class="loading display">
+            <div class="load"></div>
+        </div>
+
         <div class="input_div">
+
+            <div class="back_icon">
+                <i class="fa-solid fa-arrow-left"></i>
+            </div>
+
             <button class="search_btn">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
@@ -81,6 +91,8 @@
         </div>
     </div>
  
-    <script type="text/javascript" src="../Js/weather.js"></script>
+    <script src="../Js/weather.js">
+
+    </script>
 </body>
 </html>

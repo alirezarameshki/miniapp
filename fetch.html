@@ -45,6 +45,7 @@
     <script>
         const btn = document.querySelector(".btn");
         const output = document.querySelector(".output");
+        const body = document.querySelector("body")
 
         // const xhr = new XMLHttpRequest()
         // xhr.open("GET","https://jsonplaceholder.typicode.com/posts/1")
@@ -151,6 +152,38 @@
        console.log(id)
         console.log("تمامی ایتم ها اضافه شدند")
       })
+
+      async function weather(city) {
+    const appid = "9a21a57d6c50a26aed3b1256cc3b1f50"
+try{
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=tehran&appid=${appid}&units=metric&lang=fa`)
+
+if(!response.ok){
+    console.error("response is not Ok")
+    return;
+}
+
+const data = await response.json()
+
+data.list.forEach((element) => {
+    console.log(element.main.temp)
+
+    const item = document.createElement("div")
+
+    item.innerHTML = element.main.temp
+
+    body.appendChild(item)
+});
+
+}
+catch(error){
+    console.log(error)
+}
+
+}
+
+ 
+weather()
     </script>
 </body>
 </html>

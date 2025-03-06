@@ -74,7 +74,7 @@ async function uploadImage() {
 }
 
 async function getResponse(imageUrl) {
-    const response = await fetch('https://aiminiapp.netlify.app/.netlify/functions/getData', {
+    const response = await fetch('/api/getData', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ image_url: imageUrl })
@@ -82,6 +82,5 @@ async function getResponse(imageUrl) {
     const data = await response.json();
     document.getElementById('outputText').innerText = data.choices[0].message.content;
 }
-
 // مثال استفاده:
  

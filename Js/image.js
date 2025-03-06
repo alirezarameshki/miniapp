@@ -74,39 +74,14 @@ async function uploadImage() {
 }
 
 async function getResponse(imageUrl) {
-    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-method: "POST",
-headers: {
-"Authorization": "Bearer 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",
-"HTTP-Referer": "<YOUR_SITE_URL>", // Optional. Site URL for rankings on openrouter.ai.
-"X-Title": "<YOUR_SITE_NAME>", // Optional. Site title for rankings on openrouter.ai.
-"Content-Type": "application/json"
-},
-body: JSON.stringify({
-"model": "google/gemini-2.0-flash-lite-preview-02-05:free",
-"messages": [
-{
-"role": "user",
-"content": [
-  {
-    "type": "text",
-    "text": "تو یک ربات تبدیل کننده عکس به متن هستی و وظیفه تو این است که هر عکسی که فرستادم متن درون آن عکس را برای من بفرستی و حرف اضافه هم نزن"
-  },
-  {
-    "type": "image_url",
-    "image_url": {
-      "url": imageUrl
-    }
-  }
-]
-}
-]
-})
-});
+    const response = await fetch('https://aiminiapp.netlify.app/.netlify/functions/getData', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ image_url: imageUrl })
+    });
     const data = await response.json();
-
-    const markdownText = data.choices?.[0]?.message?.content || error;
-
-    document.getElementById("outputText").innerHTML = markdownText
-    
+    document.getElementById('outputText').innerText = data.choices[0].message.content;
 }
+
+// مثال استفاده:
+ 

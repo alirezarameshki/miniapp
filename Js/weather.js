@@ -87,7 +87,7 @@ name : ${data.name}
         const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
             method: "POST",
             headers: {
-                "Authorization": "Bearer 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",
+                "Authorization": "Bearer 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",
                 "HTTP-Referer": "<YOUR_SITE_URL>", // Optional. Site URL for rankings on openrouter.ai.
                 "X-Title": "<YOUR_SITE_NAME>", // Optional. Site title for rankings on openrouter.ai.
                 "Content-Type": "application/json"

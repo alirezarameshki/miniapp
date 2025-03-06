@@ -77,7 +77,7 @@ async function getResponse(imageUrl) {
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
 method: "POST",
 headers: {
-"Authorization": "Bearer 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",
+"Authorization": "Bearer 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",
 "HTTP-Referer": "<YOUR_SITE_URL>", // Optional. Site URL for rankings on openrouter.ai.
 "X-Title": "<YOUR_SITE_NAME>", // Optional. Site title for rankings on openrouter.ai.
 "Content-Type": "application/json"

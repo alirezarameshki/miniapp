@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/todolist.css">
+     
+    <div class="main">
+        <div class="loading display">
+            <div class="load"></div>
+        </div>
+      <div class="back">
+        <div class="back_icon">
+            <i class="fa-solid fa-arrow-left"></i>
+        </div>
+      </div>
+        <div class="menu-bar">
+            <div class="tasks_menu goTask">
+                <i class="fa-solid fa-list-check"></i>
+              <p>Tasks</p>
+            </div>
+
+            <div class="tasks_menu goMine">
+                <i class="fa-solid fa-user"></i>
+              <p>Mine</p>
+            </div>
+        </div>
+            <div class="addTask">
+                <i class="fa-solid fa-plus addTask_i"></i>
+            </div>
+    
+            <div class="addTasks_page display">
+               <div class="addtask_pagename">
+                <strong>اضافه کردن کار جدید</strong>
+               </div>
+
+               <div class="textarea_div">
+                <strong class="str">: عنوان</strong>
+                <textarea class="textarea addTasks_input" placeholder="لطفا یک مقدار وارد کنید"></textarea>
+                <p class="length textarea_length">00/50</p>
+               </div>
+
+               <div class="textarea_div">
+                <strong class="str">:<p style="color: gray;display: inline-block;">(اختیاری)</p> توضیحات اضافه</strong>
+                <textarea class="textarea addTasks_input optional_textarea" placeholder="لطفا یک مقدار وارد کنید"></textarea>
+                <p class="length optional_len ">00/50</p>
+               </div>
+
+               <div class="addTasks_btns">
+                <button class="addTasks_btn cancel">لغو</button>
+                <button class="addTasks_btn save">ذخیره</button>
+               </div>
+            </div>
+
+            <div class="Mine" >
+                <div class="Mine_profile">
+                    <div class="picture">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+        
+                    <div class="Mine_profile-name">
+                        پروفایل من
+                    </div>
+                </div>
+
+                <div class="Tasks_overview">
+                    <p class="Tasks_overview-title">بررسی کارها</p>
+
+                    <div class="Tasks_container">
+                        <div class="page_item">
+                            <h3  class="complete">0</h3>
+                            <p class="gray">کارهای تکمیل شده</p>
+                        </div>
+                        <div class="page_item">
+                            <h3 class="pending">0</h3>
+                            <p class="gray">کارهای درحال انتظار</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <script src="Js/todolist.js"></script>
+</body>
+</html>

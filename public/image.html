@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تبدیل عکس به متن</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/image.css">
+</head>
+<body>
+    <div class="back">
+        <div class="back_icon">
+            
+            <i class="fa-solid fa-arrow-left"></i>
+        </div>
+      </div>
+
+    <div class="main">
+        <div class="loading  display">
+            <div class="load"></div>
+        </div>
+        <h2 class="title">تبدیل عکس به متن</h2>
+        <p class="description">با استفاده از این ابزار کاملا رایگان متن های خود را از عکس استخراج کنید</p>
+        <input type="file" class="display" id="fileInput" accept="image/*">
+        <div class="btns">
+            <button class="upload_img">بارگذاری تصویر</button>
+            <button class="importimg">استخراج متن</button>
+        </div>
+        <br>
+        <div class="display" id="outputText" placeholder="متن استخراج شده اینجا نمایش داده می‌شود..." >
+         </div>
+
+         <div class="warning display">
+            <div class="close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <p class="warning_text">
+                درصورتی که با متن اشتباهی رو به رو شدید و یا استخراج به درستی انجام نشد لطفا مجدد بر روی دکمه استخراج متن کلیک کنید
+            </p>
+        </div>
+
+    </div>
+
+    <script src="Js/image.js">
+    </script>
+</body>
+</html>

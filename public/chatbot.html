@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <title>Chat with AI</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/chatbot.css">
+</head>
+<body>
+    <div class="main">
+        <div class="loading display">
+            <div class="load"></div>
+        </div>
+        <div class="user">
+            <div class="icon back">
+                <i class="fa-solid fa-arrow-left"></i>
+            </div>
+
+            <img src="https://cdn.pixabay.com/photo/2023/07/24/23/30/chat-8147986_1280.jpg" alt="">
+            <p>chat Bot</p>
+    
+            <div class=" setting">
+             <div class="icon setting_icon">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+             </div>
+
+                <div class="menu">
+    
+                    <div class="menu_item close_item">
+                        بستن منو
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                    <div class="menu_item clear-history">
+                        پاکسازی تاریخچه
+                        <i class="fa-solid fa-trash-can-arrow-up"></i>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+      <div class="message_box">
+    <div class="response">
+        <div class="load_message">
+            <div class="load_mess"></div>
+        </div>
+    </div>
+    </div>
+    
+        <div class="message">
+            <textarea class="type_message" type="text" placeholder="Type your message..."></textarea>
+            <input id="chooseFile" style="display: none;" type="file">
+            <div class="send_btn">
+                <button class="send_message " >
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+<script src="Js/chatbot.js"></script>
+</body>
+</html>

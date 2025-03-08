@@ -1,7 +1,12 @@
+@font-face {
+    font-family: 'Vazir';
+    src: url('../../vazir-font-v16.1.0/Vazir-Light.woff') format('woff');
+}
+
 * {
     box-sizing: border-box;
     margin: 0; 
-    font-family: sans-serif;
+    font-family:"Vazir", sans-serif;
 }
 
 .message , .response {

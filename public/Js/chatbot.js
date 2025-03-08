@@ -171,72 +171,43 @@ document.addEventListener("DOMContentLoaded",()=>{
 // main function
 
 async function chatApi() {
-   if(input.value.trim() === "")return;
+    if (input.value.trim() === "") return;
 
+    const responseDiv = document.createElement("div");
+    message_box.appendChild(responseDiv);
 
-   
-   const responseDiv = document.createElement("div")
-   message_box.appendChild(responseDiv)
+    responseDiv.classList.add("response");
+    const loading = document.createElement("div");
+    loading.classList.add("loading");
+    responseDiv.appendChild(loading);
+    message_box.scrollTop = message_box.scrollHeight;
 
-   responseDiv.classList.add("response")
-   const loading = document.createElement("div")
+    try {
+        const apiResponse = await fetch('/api/chatbot', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: input.value })
+        });
 
-   loading.classList.add("loading")
+        if (!apiResponse.ok) {
+            throw new Error(`HTTP error! Status: ${apiResponse.status}`);
+        }
 
-   responseDiv.appendChild(loading)
-   message_box.scrollTop = message_box.scrollHeight
+        const data = await apiResponse.json();
+        console.log("API Response:", data);
 
+        const error = "خطا در برقراری ارتباط با سرور , لطفا دوباره تلاش کنید.";
+        const markdownText = data.choices?.[0]?.message?.content || error;
+        console.log("Markdown Text:", markdownText);
 
+        responseDiv.innerHTML = markdownText;
+        responseDiv.classList.add("background");
 
-   try {
-   
-       const apiResponse = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-  method: "POST",
-  headers: {
-    "Authorization": "Bearer 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",
-    "HTTP-Referer": "<YOUR_SITE_URL>", // Optional. Site URL for rankings on openrouter.ai.
-    "X-Title": "<YOUR_SITE_NAME>", // Optional. Site title for rankings on openrouter.ai.
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    "model": "google/gemini-2.0-flash-lite-preview-02-05:free",
-    "messages": [
-    {"role": "user", "content": " لطفا جواب سوال را به صورت روان و شفاف و با قالب بندی مقدمه و بدنه و نتیجه گیری بفرست و بین هر قالب فاصله <br>بزار و برو به خط بعدی"},
-    
-    {"role": "user", "content": input.value}
-    ],
-    "top_p": 1,
-    "temperature": 0.5,
-    "repetition_penalty": 1
-  })
-});
-       
-       if (!apiResponse.ok) {
-           throw new Error(`HTTP error! Status: ${apiResponse.status}`);
-       }
+    } catch (error) {
+        console.error("Error:", error);
+        responseDiv.innerHTML = "error connection";
+    }
 
-        
-       const data = await apiResponse.json();
-       console.log("API Response:", data);
-
-     
-
-       const error = "خطا در برقراری ارتباط با سرور , لطفا دوباره تلاش کنید."
-       const markdownText = data.choices?.[0]?.message?.content || error;
-       console.log("Markdown Text:", markdownText);
-
-       responseDiv.innerHTML = markdownText
-        
-       responseDiv.classList.add("background")
-
-        
-     
-
-   }catch (error) {
-       console.error("Error:", error);
-       responseDiv.innerHTML = "error connection";
-   }
-
-   Get_response.push(responseDiv.innerHTML)
-   localStorage.setItem("response",JSON.stringify(Get_response))
+    Get_response.push(responseDiv.innerHTML);
+    localStorage.setItem("response", JSON.stringify(Get_response));
 }

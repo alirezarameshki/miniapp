@@ -82,28 +82,15 @@ name : ${data.name}
     }
 }
 
- async function  weatherAi(value) {
-    const weather = await getweather(value)
-      
-     console.log(weather)
+async function weatherAi(value) {
+    const weather = await getweather(value);
+    console.log(weather);
 
-    try{
-        const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-            method: "POST",
-            headers: {
-                "Authorization": "Bearer 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",
-                "HTTP-Referer": "<YOUR_SITE_URL>", // Optional. Site URL for rankings on openrouter.ai.
-                "X-Title": "<YOUR_SITE_NAME>", // Optional. Site title for rankings on openrouter.ai.
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                "model": "google/gemini-2.0-flash-lite-preview-02-05:free",
-                "messages": [
-                    {"role":"system", "content":"تو یک ربات هواشناس هستی و لطفا بر اساس اطلاعات دریافتی یک پیشنهاد کوتاه و جامع بده که طبق اطلاعات هواشناسی ایا در چند روز اینده چه کاری باید و چه کاری نباید انجام بدیم"},
-                    {"role": "user", "content":weather}
-                ],
-
-            })
+    try {
+        const response = await fetch('/api/getweather', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ weather_data: weather })
         });
 
         if (!response.ok) {
@@ -114,15 +101,13 @@ name : ${data.name}
         const default_message = `
         پیامی دریافت نشد 
         لطفا مجدد شهر خود را وارد کنید و بر روی دکمه جست و جو کلیک کنید ,سپس دوباره امتحان کنید
-        `
-        const markdownText = data.choices?.[0]?.message?.content || "پیامی دریافت نشد";
-        response_text.innerHTML = markdownText
-         
-    } catch(error) {
+        `;
+        const markdownText = data.choices?.[0]?.message?.content || default_message;
+        response_text.innerHTML = markdownText;
+    } catch (error) {
         console.log(error);
     }
- }
-
+}
 
 async function weather(city) {
     const appid = "9a21a57d6c50a26aed3b1256cc3b1f50"

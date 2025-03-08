@@ -82,5 +82,6 @@ async function getResponse(imageUrl) {
     const data = await response.json();
     document.getElementById('outputText').innerText = data.choices[0].message.content;
 }
+
 // مثال استفاده:
  
